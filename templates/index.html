@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Linear Regression</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+ 
+</head>
+
+<!-- <body style:background="{{ url_for('static', filename='images/background.jpg') }}"> -->
+ <div class="login">
+	<h1>Predict Salary Analysis</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+     <lable>Enter You Experience</lable>
+     <br/>
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="experience" placeholder="Experience" required="required" />
+     <lable>Enter You test score between 0-10</lable>
+     <br/>
+
+        <input type="text" name="test_score" placeholder="Test Score" required="required" />
+     <lable>Enter You interview score between 0-10</lable>
+     <br/>
+		<input type="text" name="interview_score" placeholder="Interview Score" required="required" />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   <!-- <div class="alert alert-primary" role="alert"> -->
+    {{ prediction_text }}
+  <!-- </div> -->
+   
+
+ </div>
+
+
+</body>
+</html>
