@@ -1,14 +1,9 @@
 # Dockerfile - this is a comment. Delete me if you want.
-FROM python:3.10-alpine
-
-ADD . /app
-
-WORKDIR /app
-
+FROM python:3.11.0-slim-bullseye
 COPY . .
-# COPY requirements.txt requirements.txt
-RUN pip install flask
+RUN pip install flask 
 RUN pip install numpy
-EXPOSE 5000
+RUN pip install sklearn
+# EXPOSE 5000
 
-CMD [ "python", "app.py" ]
+CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0"]
